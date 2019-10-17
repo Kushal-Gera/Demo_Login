@@ -76,6 +76,7 @@ public class LoginAct extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(LoginAct.this, "Logging in...", Toast.LENGTH_SHORT).show();
                 String userCode = otp.getText().toString().trim();
                 if (!TextUtils.isEmpty(userCode))
                     verifyCode(userCode);
