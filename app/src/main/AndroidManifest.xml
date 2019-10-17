@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="kushal.application.demo_login">
+    package="kushal.application.demo_auth">
 
     <application
         android:allowBackup="true"
@@ -11,15 +11,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Details"></activity>
-        <activity android:name=".LoginAct">
+        <activity android:name="kushal.application.demo_auth.Details"></activity>
+        <activity android:name="kushal.application.demo_auth.LoginAct">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name="kushal.application.demo_auth.MainActivity"></activity>
     </application>
 
 </manifest>

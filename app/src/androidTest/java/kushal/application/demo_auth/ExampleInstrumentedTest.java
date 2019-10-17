@@ -1,4 +1,4 @@
-package kushal.application.demo_login;
+package kushal.application.demo_auth;
 
 import android.content.Context;
 

@@ -8,17 +8,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:336492211195:android:707bcdc4ca14f8f07f395e",
+        "mobilesdk_app_id": "1:336492211195:android:90564781ba2e058b7f395e",
         "android_client_info": {
-          "package_name": "kushal.application.demo_login"
+          "package_name": "kushal.application.demo_auth"
         }
       },
       "oauth_client": [
         {
-          "client_id": "336492211195-k3a7ercvo4ce8la4f3ei2sup02n00q4h.apps.googleusercontent.com",
+          "client_id": "336492211195-vq97354htrpralpll6hou1p3t5asstcu.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "kushal.application.demo_login",
+            "package_name": "kushal.application.demo_auth",
             "certificate_hash": "1ebd1b1ebc60dd0193d75ff904e92ee49592e2e5"
           }
         },

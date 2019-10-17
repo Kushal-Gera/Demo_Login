@@ -1,8 +1,7 @@
-package kushal.application.demo_login;
+package kushal.application.demo_auth;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -20,13 +19,19 @@ public class Details extends AppCompatActivity {
     LinearLayout save;
     EditText name, age, gender;
     FirebaseDatabase firebaseDatabase;
+    DatabaseReference ref;
     FirebaseAuth auth;
 
     public static final String PATIENT = "Patient";
-    public static final String PERSONAL_INFO = "Personal Info";
     public static final String NAME = "Name";
     public static final String AGE = "Age";
     public static final String GENDER = "Gender";
+
+    public static final String PERSONAL_INFO = "Personal Info";
+    public static final String PAST_REP = "Past Reports";
+    public static final String MEDICINES = "Medicines";
+    public static final String APPOINTMENTS = "Appointments";
+
 
 
     @Override
@@ -51,9 +56,8 @@ public class Details extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                DatabaseReference ref = firebaseDatabase.getReference().child(PATIENT)
-                                            .child(auth.getCurrentUser().getPhoneNumber())
-                                            .child(PERSONAL_INFO);
+                ref = firebaseDatabase.getReference().child(PATIENT)
+                                            .child(auth.getCurrentUser().getPhoneNumber());
 
                 if (TextUtils.isEmpty(name.getText())){
                     name.setError("Required");
@@ -68,9 +72,7 @@ public class Details extends AppCompatActivity {
                     return;
                 }
 
-                ref.child(NAME).setValue(name.getText().toString().trim());
-                ref.child(AGE).setValue(age.getText().toString().trim());
-                ref.child(GENDER).setValue(gender.getText().toString().trim());
+                saveData();
 
 
                 Toast.makeText(Details.this, "saved", Toast.LENGTH_SHORT).show();
@@ -87,6 +89,29 @@ public class Details extends AppCompatActivity {
         });
 
 
+
+    }
+
+    private void saveData() {
+
+        //personal ref
+        DatabaseReference personal_ref = ref.child(PERSONAL_INFO);
+        personal_ref.child(NAME).setValue(name.getText().toString().trim());
+        personal_ref.child(AGE).setValue(age.getText().toString().trim());
+        personal_ref.child(GENDER).setValue(gender.getText().toString().trim());
+
+        //past reports reference
+        DatabaseReference past_rep = ref.child(PAST_REP);
+        past_rep.child("test 1").setValue("null");
+
+        //medicines ref
+        DatabaseReference med_ref = ref.child(MEDICINES);
+        med_ref.child("null").setValue("0-0-0-0");
+
+        //appointments reference
+        DatabaseReference appoint_ref = ref.child(APPOINTMENTS);
+        appoint_ref.child("Date").setValue("null");
+        appoint_ref.child("Remarks").setValue("null");
 
     }
 }
