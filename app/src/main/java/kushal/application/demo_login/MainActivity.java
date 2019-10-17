@@ -25,8 +25,6 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
-    Dialog dialog;
-    String IS_PREVIOUS;
     public static final String PERSONAL_INFO = "Personal Info";
     public static final String NAME = "name";
     public static final String PATIENT = "Patient";
@@ -51,18 +49,15 @@ public class MainActivity extends AppCompatActivity {
 
         firebaseDatabase = FirebaseDatabase.getInstance();
 
-        try {
 
-            DatabaseReference ref = firebaseDatabase.getReference().child(PATIENT)
-                    .child("+91966709958");
+        SharedPreferences preferences = getSharedPreferences("shared_pref", MODE_PRIVATE);
+        boolean is_prev = preferences.getBoolean("is_prev", false);
 
-            Toast.makeText(this, "hello" + ref.getParent().toString(), Toast.LENGTH_SHORT).show();
-
-        }catch (NullPointerException e){
-//            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+        if (!is_prev){
             startActivity(new Intent(this, Details.class));
-
         }
+
+
 
 
 

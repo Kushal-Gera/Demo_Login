@@ -21,6 +21,7 @@ public class Details extends AppCompatActivity {
     EditText name, age, gender;
     FirebaseDatabase firebaseDatabase;
     FirebaseAuth auth;
+
     public static final String PATIENT = "Patient";
     public static final String PERSONAL_INFO = "Personal Info";
     public static final String NAME = "Name";
@@ -73,6 +74,12 @@ public class Details extends AppCompatActivity {
 
 
                 Toast.makeText(Details.this, "saved", Toast.LENGTH_SHORT).show();
+
+                SharedPreferences preferences = getSharedPreferences("shared_pref", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+
+                editor.putBoolean("is_prev", true);
+                editor.apply();
 
                 finish();
 
