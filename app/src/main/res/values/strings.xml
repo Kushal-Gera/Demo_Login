@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Demo_Login</string>
+    <string name="your_phone_number">Enter Phone Number</string>
+    <string name="description">desc</string>
+</resources>
